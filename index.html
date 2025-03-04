@@ -47,8 +47,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
         
         .profile {
@@ -76,11 +74,10 @@
             border: 3px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.5s ease;
-            transform: translateZ(20px);
         }
 
         .profile-img:hover {
-            transform: translateZ(30px) scale(1.05);
+            transform: scale(1.05);
             border-color: rgba(255, 255, 255, 0.3);
         }
         
@@ -90,7 +87,6 @@
             background: linear-gradient(45deg, #fff, #64ffda);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            transform: translateZ(20px);
         }
         
         p {
@@ -98,14 +94,12 @@
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 30px;
-            transform: translateZ(10px);
         }
         
         .links {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            transform-style: preserve-3d;
         }
         
         .link-button {
@@ -122,7 +116,6 @@
             justify-content: center;
             gap: 15px;
             font-size: 1.1em;
-            transform: translateZ(0);
             position: relative;
             overflow: hidden;
         }
@@ -148,9 +141,9 @@
         }
 
         .link-button:hover {
-            transform: translateZ(20px);
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
 
         .telegram { 
@@ -179,96 +172,6 @@
                 height: 150px;
             }
         }
-
-        /* Новые стили */
-        .skills {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: #a8e6cf;
-            border: 1px solid rgba(168, 230, 207, 0.3);
-        }
-
-        .projects {
-            margin-bottom: 30px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: #a8e6cf;
-            margin-bottom: 5px;
-        }
-
-        .project-description {
-            font-size: 0.9em;
-            color: #a8b2c1;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .email-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #a8e6cf;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-
-        .email-button:hover {
-            color: #fff;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9em;
-            color: #a8e6cf;
-            margin-bottom: 20px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #a8e6cf;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -276,29 +179,7 @@
         <div class="profile">
             <img src="1.jpg" alt="Фото профиля" class="profile-img">
             <h1>Онищенко Григорий</h1>
-            <div class="status">
-                <span class="status-dot"></span>
-                Открыт к сотрудничеству
-            </div>
-            <p>Я начинающий программист, это моя визитка</p>
-        </div>
-
-        <div class="skills">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Git</span>
-        </div>
-
-        <div class="projects">
-            <div class="project-card">
-                <div class="project-title">Taplink Визитка</div>
-                <div class="project-description">Персональная страница-визитка с современным дизайном</div>
-            </div>
-            <div class="project-card">
-                <div class="project-title">Будущий проект</div>
-                <div class="project-description">В разработке...</div>
-            </div>
+            <p>Я программист, учусь в САФУ</p>
         </div>
         
         <div class="links">
@@ -311,29 +192,6 @@
                 VKontakte
             </a>
         </div>
-
-        <div class="contact-info">
-            <a href="mailto:ваша_почта@example.com" class="email-button">
-                <i class="far fa-envelope"></i>
-                Написать на почту
-            </a>
-        </div>
     </div>
-
-    <script>
-        // Добавляем эффект параллакса при движении мыши
-        document.addEventListener('mousemove', (e) => {
-            const container = document.querySelector('.container');
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
-            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-
-        // Возвращаем в исходное положение при уходе мыши
-        document.addEventListener('mouseleave', () => {
-            const container = document.querySelector('.container');
-            container.style.transform = 'rotateY(0) rotateX(0)';
-        });
-    </script>
 </body>
 </html> 
